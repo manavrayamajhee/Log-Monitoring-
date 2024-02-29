@@ -1,0 +1,22 @@
+<!-- src/public/index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log Monitoring</title>
+    <script>
+      const socket = new WebSocket('ws://localhost:3000');
+      socket.onmessage = function (event) {
+        const logDiv = document.getElementById('log');
+        logDiv.innerHTML += event.data + '<br>';
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Log Monitoring</h1>
+    <div id="log">
+      <!-- Log content will be updated here -->
+    </div>
+  </body>
+</html>
